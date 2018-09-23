@@ -33,7 +33,7 @@ const ProjectsSection = styled.div`
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background-image: linear-gradient(${palette.dark}dd, ${palette.primary}88);
+  background-image: linear-gradient(${palette.darker}dd, ${palette.dark}88);
   }
 `
 
@@ -41,8 +41,8 @@ const ProjectHeader = styled.div`
   max-width: 10rem;
   flex: 1;
   flex-wrap: wrap;
-  background-color: ${palette.dark}aa;
-  padding: 2rem;
+  background-color: ${palette.darker}aa;
+  padding: 2.5rem;
   overflow: hidden;
   margin-top: 5rem;
   animation: ${projectAppear} 0.5s ease;
@@ -61,8 +61,8 @@ const ProjectHeader = styled.div`
 
 const ProjectList = styled.div`
   flex: 7;
-  background-color: ${palette.primary}44;
-  padding: 1rem;
+  background-color: ${palette.dark}44;
+  padding: 2rem;
   margin-top: 5rem;
   display: flex;
   flex-direction: row;

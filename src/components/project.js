@@ -27,7 +27,7 @@ const ProjectCard = styled.div`
   height: 10rem;
   display: flex;
   flex-direction: column;
-  margin: 8px;
+  margin: 16px;
   background-color: #4f4f4f44;
   border: 1px solid white;
   box-shadow: 0 0 20px white;

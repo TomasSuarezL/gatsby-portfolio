@@ -79,7 +79,6 @@ const MainSection = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
-  background-size: cover;
   overflow: hidden;
   z-index: 1;
   .header__bg {
@@ -92,7 +91,7 @@ const MainSection = styled.div`
     left: 0;
     width: 100%;
     height: 90%;
-    background-image: linear-gradient(${palette.dark}ff, ${palette.primary}88);
+    background-image: linear-gradient(${palette.darker}ff, ${palette.dark}88);
     transform: skewY(-10deg);
     transform-origin: top left;
   }
@@ -141,21 +140,14 @@ const Portrait = styled.div`
     z-index: 1;
     box-shadow: 0px 0px 10px white;
     animation: ${appear} 1s ease;
-    &:before {
+    &:after {
       content: '';
       position: absolute;
       height: 26vh;
       width: 26vh;
-      background-color: ${palette.primary}95;
+      background-color: ${palette.dark}95;
       border-radius: 50%;
-      transform-origin: center;
-      transform: scale(1);
-      transition: transform 0.3s ease;
-    }
-    &:hover {
-      &:before {
-        transform: scale(1);
-      }
+      box-shadow: 0 0 30px ${palette.dark}95;
     }
   }
 `

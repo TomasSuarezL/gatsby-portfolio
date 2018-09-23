@@ -6,7 +6,7 @@ import Header from '../components/header'
 import './index.css'
 
 const Layout = ({ children, data }) => (
-  <div>
+  <div style={{height: "100%"}}>
     <Helmet
       title={data.site.siteMetadata.title}
       meta={[
@@ -15,7 +15,7 @@ const Layout = ({ children, data }) => (
       ]}
     />
     <Header siteTitle={data.site.siteMetadata.title} />
-    <div>{children()}</div>
+    <div style={{height: "100%"}}>{children()}</div>
   </div>
 )
 
