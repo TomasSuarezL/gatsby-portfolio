@@ -13,6 +13,7 @@ const NavBar = styled.div`
   align-items: center;
   z-index: 10;
   box-shadow: 0 0 6px black;
+  background-color: ${palette.dark};
 `
 const Title = styled.p`
   flex: 1;

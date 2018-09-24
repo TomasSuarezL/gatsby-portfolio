@@ -7,13 +7,21 @@ html {
 }
 body {
   margin: 0;
-  background: url('https://i.imgur.com/CLEk7sg.jpg') no-repeat center center;
-  background-size: cover;
+
   height: 100%;
 }
 body > div {
   height: 100%;
 }
+#background {
+  position: fixed;
+  z-index: -1;
+  background: url('https://i.imgur.com/CLEk7sg.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
 article,
 aside,
 details,

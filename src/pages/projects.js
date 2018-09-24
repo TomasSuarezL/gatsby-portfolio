@@ -5,13 +5,13 @@ import Project from '../components/project'
 
 const projectAppear = keyframes`
     0% {
-        transform: scaleX(20);
+        transform: scaleY(20);
     }
     50% {
     }
     100% {
         transform: translate(0);
-        transform: scaleX(1);
+        transform: scaleY(1);
     }
 `
 const textAppear = keyframes`
@@ -32,17 +32,16 @@ const ProjectsSection = styled.div`
   overflow: hidden;
   z-index: 1;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   background-image: linear-gradient(${palette.darker}dd, ${palette.dark}88);
   }
 `
 
 const ProjectHeader = styled.div`
-  max-width: 10rem;
   flex: 1;
   flex-wrap: wrap;
   background-color: ${palette.darker}aa;
-  padding: 2.5rem;
+  padding: 1rem;
   overflow: hidden;
   margin-top: 5rem;
   animation: ${projectAppear} 0.5s ease;
@@ -52,9 +51,8 @@ const ProjectHeader = styled.div`
     text-shadow: 0 0 40px white;
     opacity: 0;
     margin: 0;
-    max-height: 100vh;
-    line-height: 9.9vh;
-    font-size: 16vh;
+    font: 600 14vw 'Roboto';
+    line-height: 11vh;
     animation: ${textAppear} 0.3s 0.5s ease forwards;
   }
 `
@@ -63,7 +61,6 @@ const ProjectList = styled.div`
   flex: 7;
   background-color: ${palette.dark}44;
   padding: 2rem;
-  margin-top: 5rem;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

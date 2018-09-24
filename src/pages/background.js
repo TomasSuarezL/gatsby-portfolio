@@ -5,7 +5,12 @@ import School from '../static/icons/school.svg'
 import Work from '../static/icons/work.svg'
 import ReactLogo from '../static/icons/react-logo.svg'
 import JSLogo from '../static/icons/JS.svg'
-import NodeLogo from "../static/icons/nodejs.svg"
+import NodeLogo from '../static/icons/nodejs.svg'
+import CSharpLogo from '../static/icons/c-sharp-logo.png'
+import SQLServerLogo from '../static/icons/SQLServer.svg'
+import PostgresLogo from '../static/icons/Postgresql.svg'
+import MongoLogo from '../static/icons/Mongo.svg'
+import PythonLogo from '../static/icons/Python.svg'
 
 const lineScale = keyframes`
     from {
@@ -52,14 +57,13 @@ const SectionTitle = styled.h3`
 
 const BackgroundSection = styled.div`
   position: relative;
-  padding-top: 5rem;
+  padding-top: 6rem;
   width: 100%;
-  height: 100%;
   overflow: auto;
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background-image: linear-gradient(${palette.darker}dd, ${palette.dark}88);
+  background-image: linear-gradient(${palette.darker}dd, ${palette.dark}aa);
   @media (max-width: 1100px) {
     flex-direction: column;
   }
@@ -131,13 +135,14 @@ const TimeLineWrapper = styled.div`
 
         .event-header {
           color: ${palette.light};
-          text-shadow: 0 0 20px ${palette.light};
+          text-shadow: 0 0 16px ${palette.light};
         }
 
         .event-titulo {
           padding: 0 8px;
           text-shadow: 0 0 20px white;
-          font-weight: 600;
+          font-weight: 400;
+          font-size: 2vw;
           & a:hover {
             color: ${palette.primary};
           }
@@ -147,7 +152,7 @@ const TimeLineWrapper = styled.div`
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          font-size: 13px
+          font-size: 1.5vw;
           text-shadow: 0 0 20px white;
           a {
             transition: color 0.2s ease-in-out;
@@ -191,11 +196,13 @@ const Skill = styled.div`
       margin: 16px;
       padding: 8px;
       align-items: center;
-      svg {
+      svg, img {
         width: 24px;
         height: 24px;
         fill: ${props => props.color}
+        margin: 0;
         margin-right: 16px;
+        filter: drop-shadow( 0px 0px 4px ${props => props.color});
       }
       p{
         flex: 1
@@ -321,7 +328,38 @@ const TimeLine = () => {
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
-          <Line order={9} />
+          <Line order={5} />
+          <br />
+        </div>
+      </div>
+      <div className="timeline-header">
+        <div>
+          <Work />
+        </div>
+        <SectionTitle>Courses & Certifications</SectionTitle>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={1} />
+          <br />
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={2} />
+          <div className="event-mark" />
+        </div>
+        <div className="event event-header">2016 - 2018</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={3} />
+        </div>
+        <div className="event event-descripcion">Free Code Camp</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={4} />
           <br />
         </div>
       </div>
@@ -349,8 +387,43 @@ const Skills = () => {
           </div>
         </Skill>
         <Skill color="#90c53f" skillPoints="50">
-          <NodeLogo/>
+          <NodeLogo />
           <p>NodeJS</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#ffe253" skillPoints="40">
+          <PythonLogo />
+          <p>Python</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#007aff" skillPoints="70">
+          <img src={CSharpLogo} alt="C Sharp" />
+          <p>C#</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#bd1d1f" skillPoints="80">
+          <SQLServerLogo />
+          <p>SQLServer</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#54a744" skillPoints="40">
+          <MongoLogo />
+          <p>MongoDB</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#7397b4" skillPoints="40">
+          <PostgresLogo />
+          <p>PostgeSQL</p>
           <div className="skill-bar">
             <div className="skill-points" />
           </div>
