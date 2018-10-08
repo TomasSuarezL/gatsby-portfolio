@@ -3,6 +3,7 @@ import { palette } from '../utils/theme'
 import styled, { keyframes } from 'styled-components'
 import School from '../static/icons/school.svg'
 import Work from '../static/icons/work.svg'
+import Certificate from '../static/icons/certificates.svg'
 import ReactLogo from '../static/icons/react-logo.svg'
 import JSLogo from '../static/icons/JS.svg'
 import NodeLogo from '../static/icons/nodejs.svg'
@@ -63,104 +64,114 @@ const BackgroundSection = styled.div`
   z-index: 1;
   display: flex;
   flex-direction: row;
-  background-image: linear-gradient(${palette.darker}dd, ${palette.dark}aa);
+  background-image: linear-gradient(${palette.darker}dd, ${palette.dark}ee);
   @media (max-width: 1100px) {
     flex-direction: column;
   }
   }
 `
 const TimeLineWrapper = styled.div`
-        margin: 2rem;     
-        display: flex;
-      flex-direction: column;
-      color: white;
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  color: white;
 
-      @media (max-width: 1100px) {
-        margin: 1rem auto 1rem auto;
+  @media (max-width: 1100px) {
+    margin: 1rem auto 1rem auto;
+  }
+
+  .timeline-header {
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    animation: ${headerAppear} 0.5s ease forwards;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0px;
+      padding: 4px;
+      width: 64px;
+      height: 64px;
+      border: 1px solid ${palette.lighter};
+      border-radius: 50%;
+      box-shadow: 0 0 10px white, 0 0 10px white inset;
+      svg {
+        filter: drop-shadow(0px 0px 4px #ffffff);
       }
+    }
+  }
 
-      .timeline-header {
-        padding: 0px;
-        display: flex;
-        align-items: center;
-        opacity: 0;
-        animation: ${headerAppear} 0.5s ease forwards;
+  .timeline-row {
+    display: flex;
+    flex-direction: row;
 
-        div {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0px;
-          padding: 4px;
-          width: 64px;
-          height: 64px;
-          border: 1px solid ${palette.lighter};
-          border-radius: 50%;
-          box-shadow: 0 0 10px white, 0 0 10px white inset;
-          svg {
-            filter: drop-shadow( 0px 0px 4px #ffffff);
-          }
-        }
+    .timeline-container {
+      width: 64px;
+      display: block;
+      filter: drop-shadow(0px 0px 4px #ffffff);
+
+      .event-mark {
+        position: relative;
+        top: -66%;
+        margin: auto;
+        border-radius: 50%;
+        background-color: ${palette.lighter};
+        width: 12px;
+        height: 12px;
+        transform: scale(0);
+        animation: ${eventMarkAppear} 0.2s 0.8s ease forwards;
       }
+    }
 
-      .timeline-row {
-        display: flex;
-        flex-direction: row;
+    .event {
+      flex: 1;
+      padding: 8px;
+      opacity: 0;
+      animation: ${headerAppear} 0.5s 0.8s ease forwards;
+    }
 
-        .timeline-container {
-          width: 64px;
-          display: block;
-          filter: drop-shadow( 0px 0px 4px #ffffff);
+    .event-header {
+      color: ${palette.light};
+      text-shadow: 0 0 16px ${palette.light};
+    }
 
-          .event-mark {
-            position: relative;
-            top: -66%;
-            margin: auto;
-            border-radius: 50%;
-            background-color: ${palette.lighter};
-            width: 12px;
-            height: 12px;
-            transform: scale(0);
-            animation: ${eventMarkAppear} 0.2s  0.8s ease forwards;
-          }
+    .event-titulo {
+      padding: 0 8px;
+      text-shadow: 0 0 20px white;
+      font-weight: 400;
+      font-size: 1.5vw;
+      & a:hover {
+        color: ${palette.primary};
+      }
+    }
 
-        }
+    .event-descripcion {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 1.2vw;
+      text-shadow: 0 0 20px white;
+    }
+  }
+`
 
-        .event {
-          flex: 1;
-          padding: 8px;
-          opacity: 0;
-          animation: ${headerAppear} 0.5s 0.8s ease forwards;
-        }
-
-        .event-header {
-          color: ${palette.light};
-          text-shadow: 0 0 16px ${palette.light};
-        }
-
-        .event-titulo {
-          padding: 0 8px;
-          text-shadow: 0 0 20px white;
-          font-weight: 400;
-          font-size: 2vw;
-          & a:hover {
-            color: ${palette.primary};
-          }
-        }
-
-        .event-descripcion {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          font-size: 1.5vw;
-          text-shadow: 0 0 20px white;
-          a {
-            transition: color 0.2s ease-in-out;
-            &:hover {
-              color: ${palette.primary};
-            }
-          }
-        }
+const Link = styled.a`
+  text-decoration: none;
+  color: ${palette.lighter}cc;
+  font: 300 14px 'Roboto';
+  padding: 8px;
+  margin: 8px;
+  border: 1px solid ${palette.lighter}cc;
+  border-radius: 4px;
+  text-shadow: 0 0 10px ${palette.lighter};
+  box-shadow: 0 0 6px ${palette.lighter};
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 45px ${palette.lighter};
+  }
 `
 
 const Line = styled.div`
@@ -186,7 +197,9 @@ const SkillsWrapper = styled.div`
     flex: 1;
     width: 100%;
     margin: 16px;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 `
 
@@ -195,7 +208,9 @@ const Skill = styled.div`
       flex-direction: row;
       margin: 16px;
       padding: 8px;
+      width: 100%;
       align-items: center;
+      justify-content: center;
       svg, img {
         width: 24px;
         height: 24px;
@@ -209,9 +224,12 @@ const Skill = styled.div`
         margin: 0;
         color: ${props => props.color}
         text-shadow: 0 0 10px ${props => props.color};
+        max-width: 8rem;
+        font-weight: 400;
       }
       .skill-bar{
         flex: 3;
+        max-width: 20rem;
         padding: 4px;
         background-color: ${props => props.color}77;
         box-shadow: 0 0 30px ${props => props.color}aa;
@@ -226,6 +244,42 @@ const Skill = styled.div`
       }
 `
 
+// const Skill = styled.div`
+//       display: flex;
+//       flex-direction: row;
+//       margin: 16px;
+//       padding: 8px;
+//       align-items: center;
+//       svg, img {
+//         width: 24px;
+//         height: 24px;
+//         fill: #007aff
+//         margin: 0;
+//         margin-right: 16px;
+//         filter: drop-shadow( 0px 0px 4px #007aff);
+//       }
+//       p{
+//         flex: 1
+//         margin: 0;
+//         color: #007aff
+//         text-shadow: 0 0 10px #007aff;
+//       }
+//       .skill-bar{
+//         flex: 3;
+//         padding: 4px;
+//         background-color: #007aff77;
+//         box-shadow: 0 0 30px #007affaa;
+//         .skill-points{
+//           padding: 8px;
+//           width: ${props => props.skillPoints}%;
+//           background-color: #007aff;
+//           box-shadow: 0 0 30px #007affcc;
+//           transform-origin: 0 0;
+//           animation: ${skillAppear} 1.3s ease;
+//         }
+//       }
+// `
+
 const TimeLine = () => {
   return (
     <TimeLineWrapper>
@@ -233,7 +287,7 @@ const TimeLine = () => {
         <div>
           <School />
         </div>
-        <SectionTitle>Educacion</SectionTitle>
+        <SectionTitle>Education</SectionTitle>
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
@@ -260,7 +314,7 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={4} />
         </div>
-        <div className="event event-descripcion">Ingeniero en Sistemas</div>
+        <div className="event event-descripcion">Software Engineer</div>
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
@@ -285,7 +339,7 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={8} />
         </div>
-        <div className="event event-descripcion">Tecnico en electronica</div>
+        <div className="event event-descripcion">Electronics Technician</div>
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
@@ -323,7 +377,7 @@ const TimeLine = () => {
           <Line order={4} />
         </div>
         <div className="event event-descripcion">
-          Desarrollador - Auxiliar de Sistemas
+          Developer - IT Help Desk 2º
         </div>
       </div>
       <div className="timeline-row">
@@ -334,7 +388,7 @@ const TimeLine = () => {
       </div>
       <div className="timeline-header">
         <div>
-          <Work />
+          <Certificate />
         </div>
         <SectionTitle>Courses & Certifications</SectionTitle>
       </div>
@@ -355,11 +409,59 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={3} />
         </div>
-        <div className="event event-descripcion">Free Code Camp</div>
+        <div className="event event-descripcion">freeCodeCamp</div>
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
           <Line order={4} />
+        </div>
+        <div className="event event-description">
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/responsive-web-design">
+            Responsive
+          </Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/javascript-algorithms-and-data-structures">
+            Algorithms
+          </Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/front-end-libraries">
+            Front End
+          </Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/data-visualization">
+            Visualization
+          </Link>
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={5} />
+          <br />
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={6} />
+          <div className="event-mark" />
+        </div>
+        <div className="event event-header">2018</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={7} />
+        </div>
+        <div className="event event-descripcion">Udemy</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={8} />
+        </div>
+        <div className="event event-description">
+          <Link href="https://www.udemy.com/certificate/UC-478OT4DM/">
+            The Advanced Web Developer Bootcamp
+          </Link>
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={9} />
           <br />
         </div>
       </div>
@@ -423,7 +525,7 @@ const Skills = () => {
         </Skill>
         <Skill color="#7397b4" skillPoints="40">
           <PostgresLogo />
-          <p>PostgeSQL</p>
+          <p>PostgreSQL</p>
           <div className="skill-bar">
             <div className="skill-points" />
           </div>

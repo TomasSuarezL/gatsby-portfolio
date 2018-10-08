@@ -52,13 +52,12 @@ const Orbit = styled.div`
   border-radius: 50%;
   margin: 4rem;
   opacity: 0;
-  z-index: 1;
-  border: 1px solid ${props => props.color};
+  z-index: 0;
+  sborder: 1px solid ${props => props.color};
   animation: ${rotation} ${props => props.rotationSpeed}
       ${props => props.satelliteRadius * 100 + 1000}ms linear infinite,
     ${appear} 1s ${props => props.satelliteRadius * 100}ms ease;
-  box-shadow: 0px 0px 30px ${props => props.color},
-    0px 0px 30px ${props => props.color} inset;
+  transform: translateZ(0);
   &:before {
     position: absolute;
     top: ${props => props.satelliteTop}vh;
@@ -68,11 +67,97 @@ const Orbit = styled.div`
     border-radius: 50%;
     background-color: ${props => props.color};
     box-shadow: 0px 0px 30px ${props => props.color};
-    z-index: 1;
+    z-index: 0;
   }
   &.appear {
     opacity: 1;
   }
+`
+
+// const Ring = styled.div`
+//   height: 10vh;
+//   width: 66vh;
+//   z-index: 2;
+//   position: absolute;
+//   top: 47%;
+//   left: 3rem;
+//   border: 20px solid ${palette.light}aa;
+//   border-top: none;
+//   border-radius: 100%;
+//   transform: rotate(30deg);
+// `
+// const Ring2 = styled(Ring)`
+//   z-index: 0;
+//   border: none;
+//   border-top: 12px solid ${palette.light}aa;
+//   box-shadow: 0 0 20px ${palette.light}aa;
+// `
+const Ring = styled.div`
+  position: absolute;
+  flex: 1;
+  border-radius: 50%;
+`
+
+const Stripe = styled(Ring)`
+  width: 42vh;
+  height: 26vh;
+  left: 160px;
+  top: 34%;
+  z-index: 6;
+  border-bottom: 30px solid ${palette.lighter};
+  transform: rotateX(75deg);
+`
+const StripeB = styled(Stripe)`
+  z-index: 1;
+  border: 30px solid ${palette.lighter};
+  border-bottom: none;
+  box-shadow: 0 0 20px ${palette.lighter}af;
+`
+
+const Stripe2 = styled(Ring)`
+  width: 52vh;
+  height: 26vh;
+  left: 120px;
+  top: 34%;
+  z-index: 6;
+  border-bottom: 25px solid ${palette.light};
+  transform: rotateX(70deg);
+`
+const StripeB2 = styled(Stripe2)`
+  z-index: 1;
+  border: 25px solid ${palette.light};
+  border-bottom: none;
+  box-shadow: 0 0 20px ${palette.light}af;
+`
+const Stripe3 = styled(Ring)`
+  width: 60vh;
+  height: 26vh;
+  left: 90px;
+  top: 34%;
+  z-index: 6;
+  border-bottom: 20px solid ${palette.primary};
+  transform: rotateX(63deg);
+`
+const StripeB3 = styled(Stripe3)`
+  z-index: 1;
+  border: 20px solid ${palette.primary};
+  border-bottom: none;
+  box-shadow: 0 0 20px ${palette.primary}af;
+`
+const Stripe4 = styled(Ring)`
+  width: 68vh;
+  height: 26vh;
+  left: 60px;
+  top: 34%;
+  z-index: 6;
+  border-bottom: 20px solid ${palette.dark};
+  transform: rotateX(55deg);
+`
+const StripeB4 = styled(Stripe4)`
+  z-index: 1;
+  border: 20px solid ${palette.dark};
+  border-bottom: none;
+  box-shadow: 0 0 20px ${palette.dark}af;
 `
 
 const MainSection = styled.div`
@@ -105,6 +190,7 @@ const Portrait = styled.div`
   height: 100%;
   justify-content: start;
   z-index: 1;
+  animation: ${appear} 1s ease;
 
   .content {
     position: absolute;
@@ -129,25 +215,23 @@ const Portrait = styled.div`
   }
   #image {
     position: absolute;
-    left: 16vh;
-    top: 30vh;
-    background: url(${Yoni}) no-repeat center center;
+    left: 220px;
+    top: 34%;
+    sbackground: url(${Yoni}) no-repeat center center;
     background-size: cover;
     width: 26vh;
     height: 26vh;
     border-radius: 50%;
-    margin: 4rem;
-    z-index: 1;
-    box-shadow: 0px 0px 10px white;
-    animation: ${appear} 1s ease;
+    z-index: 2;
+    box-shadow: 0px 0px 100px ${palette.dark}ee;
     &:after {
       content: '';
       position: absolute;
       height: 26vh;
       width: 26vh;
-      background-color: ${palette.dark}95;
+      background: linear-gradient(${palette.dark}fe, ${palette.primary}ee);
       border-radius: 50%;
-      box-shadow: 0 0 30px ${palette.dark}95;
+      box-shadow: 0 0 130px ${palette.dark}77;
     }
   }
 `
@@ -163,6 +247,14 @@ const IndexPage = () => (
         <StyledLink to="/about/">Contact</StyledLink>
       </div>
       <div id="image" />
+      <Stripe />
+      <StripeB />
+      <Stripe2 />
+      <StripeB2 />
+      <Stripe3 />
+      <StripeB3 />
+      <Stripe4 />
+      <StripeB4 />
       <Orbit
         color="#9defaa"
         radius="55"
