@@ -61,6 +61,7 @@ const BackgroundSection = styled.div`
   padding-top: 6rem;
   width: 100%;
   overflow: auto;
+  will-change: transform;
   z-index: 1;
   display: flex;
   flex-direction: row;
@@ -71,7 +72,9 @@ const BackgroundSection = styled.div`
   }
 `
 const TimeLineWrapper = styled.div`
+  flex: 1;
   margin: 2rem;
+  padding-left: 2rem;
   display: flex;
   flex-direction: column;
   color: white;
@@ -142,7 +145,7 @@ const TimeLineWrapper = styled.div`
       padding: 0 8px;
       text-shadow: 0 0 20px white;
       font-weight: 400;
-      font-size: 1.5vw;
+      font-size: 3vh;
       & a:hover {
         color: ${palette.primary};
       }
@@ -151,8 +154,7 @@ const TimeLineWrapper = styled.div`
     .event-descripcion {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
-      font-size: 1.2vw;
+      font-size: 2vh;
       text-shadow: 0 0 20px white;
     }
   }
@@ -160,10 +162,12 @@ const TimeLineWrapper = styled.div`
 
 const Link = styled.a`
   text-decoration: none;
+  text-align: center;
   color: ${palette.lighter}cc;
   font: 300 14px 'Roboto';
-  padding: 8px;
+  padding: 16px;
   margin: 8px;
+  flex: 1;
   border: 1px solid ${palette.lighter}cc;
   border-radius: 4px;
   text-shadow: 0 0 10px ${palette.lighter};
@@ -229,7 +233,7 @@ const Skill = styled.div`
       }
       .skill-bar{
         flex: 3;
-        max-width: 20rem;
+        smax-width: 20rem;
         padding: 4px;
         background-color: ${props => props.color}77;
         box-shadow: 0 0 30px ${props => props.color}aa;
@@ -243,43 +247,6 @@ const Skill = styled.div`
         }
       }
 `
-
-// const Skill = styled.div`
-//       display: flex;
-//       flex-direction: row;
-//       margin: 16px;
-//       padding: 8px;
-//       align-items: center;
-//       svg, img {
-//         width: 24px;
-//         height: 24px;
-//         fill: #007aff
-//         margin: 0;
-//         margin-right: 16px;
-//         filter: drop-shadow( 0px 0px 4px #007aff);
-//       }
-//       p{
-//         flex: 1
-//         margin: 0;
-//         color: #007aff
-//         text-shadow: 0 0 10px #007aff;
-//       }
-//       .skill-bar{
-//         flex: 3;
-//         padding: 4px;
-//         background-color: #007aff77;
-//         box-shadow: 0 0 30px #007affaa;
-//         .skill-points{
-//           padding: 8px;
-//           width: ${props => props.skillPoints}%;
-//           background-color: #007aff;
-//           box-shadow: 0 0 30px #007affcc;
-//           transform-origin: 0 0;
-//           animation: ${skillAppear} 1.3s ease;
-//         }
-//       }
-// `
-
 const TimeLine = () => {
   return (
     <TimeLineWrapper>
@@ -415,13 +382,20 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={4} />
         </div>
-        <div className="event event-description">
+        <div className="event event-descripcion">
           <Link href="https://www.freecodecamp.org/certification/tomassuarezl/responsive-web-design">
             Responsive
           </Link>
           <Link href="https://www.freecodecamp.org/certification/tomassuarezl/javascript-algorithms-and-data-structures">
             Algorithms
           </Link>
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={4} />
+        </div>
+        <div className="event event-descripcion">
           <Link href="https://www.freecodecamp.org/certification/tomassuarezl/front-end-libraries">
             Front End
           </Link>
@@ -453,7 +427,7 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={8} />
         </div>
-        <div className="event event-description">
+        <div className="event event-descripcion">
           <Link href="https://www.udemy.com/certificate/UC-478OT4DM/">
             The Advanced Web Developer Bootcamp
           </Link>
@@ -526,6 +500,19 @@ const Skills = () => {
         <Skill color="#7397b4" skillPoints="40">
           <PostgresLogo />
           <p>PostgreSQL</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#7397b4" skillPoints="40" />
+        <Skill color="#fafafa" skillPoints="95">
+          <p>Spanish</p>
+          <div className="skill-bar">
+            <div className="skill-points" />
+          </div>
+        </Skill>
+        <Skill color="#fafafa" skillPoints="55">
+          <p>English</p>
           <div className="skill-bar">
             <div className="skill-points" />
           </div>

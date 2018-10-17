@@ -200,7 +200,6 @@ textarea {
 }
 html {
   box-sizing: border-box;
-  overflow-y: auto;
 }
 * {
   box-sizing: inherit;

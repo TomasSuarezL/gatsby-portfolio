@@ -82,6 +82,8 @@ const Projects = () => (
         order="1"
         name="lapo"
         description="Estadisticas de Lapo BNT"
+        link="https://github.com/TomasSuarezL/lapo"
+        deploy="https://bnt-lapo.appspot.com/"
         stack={[
           { name: 'Python', color: '#4da3d2' },
           { name: 'GAE', color: '#619de5' },
@@ -90,35 +92,46 @@ const Projects = () => (
       />
       <Project
         order="2"
-        name="prueba"
-        description="proyecto de prueba"
+        name="react-cv"
+        description="Personal CV built on React Stack"
+        link="https://github.com/TomasSuarezL/react-cv"
+        deploy="https://tomassuarezl.github.io/react-cv/"
         stack={[
-          { name: 'HTML', color: '#afafaf' },
-          { name: 'CSS', color: '#a2a1a3' },
-          { name: 'JS', color: '#3f3f3f' },
-          { name: 'HTML2', color: '#afafaf' },
-          { name: 'CSS2', color: '#a2a1a3' },
-          { name: 'JS2', color: '#3f3f3f' },
+          { name: 'React', color: '#61dafb' },
+          { name: 'Redux', color: '#7248b6' },
+          { name: 'CRA', color: '#61dafb' },
+          { name: 'GH pages', color: '#1f201b' },
         ]}
       />
       <Project
         order="3"
-        name="prueba"
+        name="LambdaBrewer"
         description="proyecto de prueba"
+        link="https://github.com/TomasSuarezL/LambdaBrewer"
         stack={[
-          { name: 'HTML', color: '#afafaf' },
-          { name: 'CSS', color: '#a2a1a3' },
-          { name: 'JS', color: '#3f3f3f' },
+          { name: 'Android', color: '#65ae43' },
+          { name: 'Java', color: '#f0931c' },
         ]}
       />
       <Project
         order="4"
-        name="prueba"
-        description="proyecto de prueba"
+        name="cryptocartera"
+        description="Seguidor de cartera de cryptos y otros assets."
+        link="https://github.com/TomasSuarezL/cryptocartera"
         stack={[
-          { name: 'HTML', color: '#afafaf' },
-          { name: 'CSS', color: '#a2a1a3' },
-          { name: 'JS', color: '#3f3f3f' },
+          { name: 'Python', color: '#f7dd66' },
+          { name: 'Flask', color: '#1f1f1f' },
+          { name: 'PostgreSQL', color: '#31648c' },
+        ]}
+      />
+      <Project
+        order="5"
+        name="gatsby-portfolio"
+        description="Portfolio/CV page made with Gatsby "
+        link="https://github.com/TomasSuarezL/gatsby-portfolio"
+        stack={[
+          { name: 'React', color: '#61dafb' },
+          { name: 'Gatsby', color: '#633194' },
         ]}
       />
       {projectFill}

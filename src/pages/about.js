@@ -3,6 +3,12 @@ import Link from 'gatsby-link'
 import styled, { keyframes } from 'styled-components'
 import { palette } from '../utils/theme'
 import Yoni from '../static/images/yoni.jpg'
+import Drum from '../static/icons/drum.svg'
+import Read from '../static/icons/read.svg'
+import Travel from '../static/icons/travel.svg'
+import Cook from '../static/icons/cook.svg'
+import Finance from '../static/icons/finance.svg'
+import Brew from '../static/icons/homebrew.svg'
 
 const borderGrow = keyframes`
  from {
@@ -31,6 +37,7 @@ const AboutSection = styled.div`
   padding: 2rem;
   min-height: 100%;
   overflow: auto;
+  will-change: transform;
   z-index: 1;
   background-image: linear-gradient(${palette.darker}ff, ${palette.dark}88);
   }
@@ -105,7 +112,7 @@ const Stripe = styled.div`
   box-shadow: 0 0 40px ${props => props.color}aa;
   z-index: 1;
   opacity: 0;
-  animation: ${borderGrow} 0.1s ${props => props.index * 100}ms ease forwards;
+  animation: ${borderGrow} 0.3s ${props => props.index * 100}ms ease forwards;
   @media (max-width: 1100px) {
     display: none;
   }
@@ -128,14 +135,20 @@ const Interest = styled.div`
   background-color: ${palette.primary}aa;
   box-shadow: 0 0 40px ${palette.primary}aa;
   padding: 24px;
-  width: 20vw;
+  min-width: 12rem;
   margin: 1rem;
   opacity: 0;
   border-radius: 0 1rem 0rem 1rem;
   animation: ${appear} 0.3s ${props => '0.' + props.order}s ease forwards;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   p {
     font: 300 16px 'Roboto';
     margin: 0;
+  }
+  svg {
+    margin-right: 16px;
   }
 `
 
@@ -149,13 +162,19 @@ const About = () => (
           <span style={{ fontSize: 56 }}>Hi, i'm Tomas.</span> I'm a Software
           Engineer from Buenos Aires, Argentina. I graduated at Universidad
           Tecnologica Nacional in 2016. <br />
-          <br />I've been working at Club Atletico River Plate since 2012, a
-          sports club in Buenos Aires, where I started as an IT help-desk. From
-          then I've been part in different Software implementations and
-          developed many applications, including Client-Server applications (C#,
+          <br />
+          I've been working at Club Atletico River Plate since 2012, a sports
+          club in Buenos Aires, where I started as an IT help-desk. From then
+          I've been part in different Software implementations and developed
+          many applications, including Client-Server applications (C#,
           SQLServer), Android applications (Java, Kotlin) and Web applications
           (Python, NodeJS, React, etc). At the same time I've busy developing
-          some personal <Link to="/projects">projects</Link>
+          some personal{' '}
+          <Link style={{ textDecoration: 'none' }} to="/projects">
+            <span style={{ fontSize: 24, color: palette.primary }}>
+              projects
+            </span>
+          </Link>
           <br />
           <br /> I've been focusing in Web Development since graduation, but I'm
           interested in learning everything I can in Software Engineering
@@ -164,27 +183,35 @@ const About = () => (
         <Interests key="interests">
           <h3>Interests & hobbies</h3>
           <Interest order="1">
+            <Read />
             <p>Reading</p>
           </Interest>
           <Interest order="2">
+            <Cook />
             <p>Cooking</p>
           </Interest>
           <Interest order="3">
+            <Drum />
             <p>Drumming</p>
           </Interest>
           <Interest order="4">
+            <Brew />
             <p>Homebrewing</p>
           </Interest>
           <Interest order="5">
+            <Travel />
             <p>Traveling</p>
           </Interest>
           <Interest order="6">
+            <Finance />
             <p>Finance</p>
           </Interest>
         </Interests>
       </AboutText>
       <Portratit>
-        {flagStripes.map((s, i) => <Stripe key={i} color={s} index={i} />)}
+        {flagStripes.map((s, i) => (
+          <Stripe key={i} color={s} index={i} />
+        ))}
         <div id="image" />
       </Portratit>
     </AboutWrapper>
