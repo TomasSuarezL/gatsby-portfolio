@@ -68,9 +68,7 @@ const ProjectList = styled.div`
   overflow: auto;
 `
 
-const projectFill = [1, 2, 3, 4, 5].map(v => (
-  <Project key={v} style={{ height: 0, padding: 0 }} stack={[]} />
-))
+const projectFill = [1, 2, 3, 4, 5].map(v => <Project key={v} style={{ height: 0, padding: 0 }} stack={[]} />)
 
 const Projects = () => (
   <ProjectsSection>
@@ -84,11 +82,7 @@ const Projects = () => (
         description="Estadisticas de Lapo BNT"
         link="https://github.com/TomasSuarezL/lapo"
         deploy="https://bnt-lapo.appspot.com/"
-        stack={[
-          { name: 'Python', color: '#4da3d2' },
-          { name: 'GAE', color: '#619de5' },
-          { name: 'JQuery', color: '#0868ab' },
-        ]}
+        stack={[{ name: 'Python', color: '#4da3d2' }, { name: 'GAE', color: '#619de5' }, { name: 'JQuery', color: '#0868ab' }]}
       />
       <Project
         order="2"
@@ -96,43 +90,28 @@ const Projects = () => (
         description="Personal CV built on React Stack"
         link="https://github.com/TomasSuarezL/react-cv"
         deploy="https://tomassuarezl.github.io/react-cv/"
-        stack={[
-          { name: 'React', color: '#61dafb' },
-          { name: 'Redux', color: '#7248b6' },
-          { name: 'CRA', color: '#61dafb' },
-          { name: 'GH pages', color: '#1f201b' },
-        ]}
+        stack={[{ name: 'React', color: '#61dafb' }, { name: 'Redux', color: '#7248b6' }, { name: 'CRA', color: '#61dafb' }, { name: 'GH pages', color: '#1f201b' }]}
       />
       <Project
         order="3"
         name="LambdaBrewer"
         description="proyecto de prueba"
         link="https://github.com/TomasSuarezL/LambdaBrewer"
-        stack={[
-          { name: 'Android', color: '#65ae43' },
-          { name: 'Java', color: '#f0931c' },
-        ]}
+        stack={[{ name: 'Android', color: '#65ae43' }, { name: 'Java', color: '#f0931c' }]}
       />
       <Project
         order="4"
         name="cryptocartera"
         description="Seguidor de cartera de cryptos y otros assets."
         link="https://github.com/TomasSuarezL/cryptocartera"
-        stack={[
-          { name: 'Python', color: '#f7dd66' },
-          { name: 'Flask', color: '#1f1f1f' },
-          { name: 'PostgreSQL', color: '#31648c' },
-        ]}
+        stack={[{ name: 'Python', color: '#f7dd66' }, { name: 'Flask', color: '#1f1f1f' }, { name: 'PostgreSQL', color: '#31648c' }]}
       />
       <Project
         order="5"
         name="gatsby-portfolio"
         description="Portfolio/CV page made with Gatsby "
         link="https://github.com/TomasSuarezL/gatsby-portfolio"
-        stack={[
-          { name: 'React', color: '#61dafb' },
-          { name: 'Gatsby', color: '#633194' },
-        ]}
+        stack={[{ name: 'React', color: '#61dafb' }, { name: 'Gatsby', color: '#633194' }]}
       />
       {projectFill}
     </ProjectList>

@@ -54,9 +54,7 @@ const Orbit = styled.div`
   opacity: 0;
   z-index: 0;
   sborder: 1px solid ${props => props.color};
-  animation: ${rotation} ${props => props.rotationSpeed}
-      ${props => props.satelliteRadius * 100 + 1000}ms linear infinite,
-    ${appear} 1s ${props => props.satelliteRadius * 100}ms ease;
+  animation: ${rotation} ${props => props.rotationSpeed} ${props => props.satelliteRadius * 100 + 1000}ms linear infinite, ${appear} 1s ${props => props.satelliteRadius * 100}ms ease;
   transform: translateZ(0);
   &:before {
     position: absolute;
@@ -244,7 +242,7 @@ const IndexPage = () => (
         <h1>Hi, I'm Tomas</h1>
         <p>I'm a Software Engineer.</p>
         <p>And this is my Website.</p>
-        <StyledLink to="/about/">Contact</StyledLink>
+        <StyledLink to="/contact/">Contact</StyledLink>
       </div>
       <div id="image" />
       <Stripe />
@@ -255,38 +253,10 @@ const IndexPage = () => (
       <StripeB3 />
       <Stripe4 />
       <StripeB4 />
-      <Orbit
-        color="#9defaa"
-        radius="55"
-        position={{ top: 16.5, left: 1.4 }}
-        satelliteRadius="3"
-        satelliteTop="17"
-        rotationSpeed="15s"
-      />
-      <Orbit
-        color="#c4d876"
-        radius="45"
-        position={{ top: 21.5, left: 6.5 }}
-        satelliteRadius="5"
-        satelliteTop="29.5"
-        rotationSpeed="25s"
-      />
-      <Orbit
-        color="#dc7272"
-        radius="35"
-        position={{ top: 25.5, left: 11.5 }}
-        satelliteRadius="2"
-        satelliteTop="22.5"
-        rotationSpeed="10s"
-      />
-      <Orbit
-        color="#4e95ff"
-        radius="65"
-        position={{ top: 11.5, left: -3.5 }}
-        satelliteRadius="4"
-        satelliteTop="18.5"
-        rotationSpeed="50s"
-      />
+      <Orbit color="#9defaa" radius="55" position={{ top: 16.5, left: 1.4 }} satelliteRadius="3" satelliteTop="17" rotationSpeed="15s" />
+      <Orbit color="#c4d876" radius="45" position={{ top: 21.5, left: 6.5 }} satelliteRadius="5" satelliteTop="29.5" rotationSpeed="25s" />
+      <Orbit color="#dc7272" radius="35" position={{ top: 25.5, left: 11.5 }} satelliteRadius="2" satelliteTop="22.5" rotationSpeed="10s" />
+      <Orbit color="#4e95ff" radius="65" position={{ top: 11.5, left: -3.5 }} satelliteRadius="4" satelliteTop="18.5" rotationSpeed="50s" />
     </Portrait>
   </MainSection>
 )

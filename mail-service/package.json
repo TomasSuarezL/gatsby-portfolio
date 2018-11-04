@@ -1,0 +1,14 @@
+{
+  "name": "mail-service",
+  "version": "1.0.0",
+  "description": "mail service aws lambda",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "slissi",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^4.6.8"
+  }
+}

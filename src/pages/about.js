@@ -10,23 +10,13 @@ import Cook from '../static/icons/cook.svg'
 import Finance from '../static/icons/finance.svg'
 import Brew from '../static/icons/homebrew.svg'
 
-const borderGrow = keyframes`
- from {
-  transform: scale(0);
- }
- to {
-   opacity: 1;
-  transform: scale(1);
- }
-`
-
 const appear = keyframes`
  from {
   transform: translateY(2rem);
   opacity: 0;
 } 
  to {
-   opacity: 1;
+   opacity: 0.7;
   transform: translateY(0);
  }
 `
@@ -46,6 +36,9 @@ const AboutWrapper = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
+  margin-top: 6rem;
+  border-radius: 5px;
+  background-color: ${palette.dark}aa;
   @media (max-width: 1100px) {
     flex-direction: column;
   }
@@ -53,13 +46,12 @@ const AboutWrapper = styled.div`
 
 const AboutText = styled.div`
   padding: 2rem;
-  padding-top: 6rem;
-  margin: 1rem;
   height: 100%;
   color: white;
   flex: 3;
   display: flex;
   flex-direction: column;
+  font-size: 16px;
   animation: ${appear} 0.3s ease;
   @media (max-width: 1100px) {
     order: 2;
@@ -67,29 +59,24 @@ const AboutText = styled.div`
   }
 `
 const Portratit = styled.div`
-  padding: 2rem;
-  padding-top: 6rem;
   position: relative;
   width: 100%;
   justify-content: start;
   z-index: 1;
-  flex: 2;
+  flex: 1;
   @media (max-width: 1100px) {
     order: 1;
     position: initial;
   }
   #image {
-    position: absolute;
-    top: 10vw;
-    left: 5vw;
+    width: 100%;
+    height: 100%;
     background: url(${Yoni}) no-repeat center center;
     background-size: cover;
-    border-radius: 5px;
-    width: 30vw;
-    height: 30vw;
+    border-radius: 5px 0px 0px 5px;
     z-index: -1;
     opacity: 0;
-    animation: ${borderGrow} 0.4s ease forwards;
+    animation: ${appear} 0.4s ease forwards;
     @media (max-width: 1100px) {
       position: initial;
       width: 100%;
@@ -101,18 +88,15 @@ const Portratit = styled.div`
 `
 const Stripe = styled.div`
   position: absolute;
-  sheight: ${props => props.index * 10 + 10}vw;
-  top: ${props => 35 - props.index * 5}vw;
-  sleft: ${props => 15 - props.index * 5}vw;
-  swidth: ${props => props.index * 10 + 10}vw;
-  left: 5vw;
-  width: 30vw;
-  height: 5vw;
-  background: ${props => props.color}88;
+  bottom: ${props => 2 - props.index * 1}vw;
+  left: 0vw;
+  width: 100%;
+  height: 1vw;
+  background: ${props => props.color};
   box-shadow: 0 0 40px ${props => props.color}aa;
   z-index: 1;
   opacity: 0;
-  animation: ${borderGrow} 0.3s ${props => props.index * 100}ms ease forwards;
+  animation: ${appear} 0.3s ${props => props.index * 100}ms ease forwards;
   @media (max-width: 1100px) {
     display: none;
   }
@@ -157,27 +141,24 @@ const flagStripes = ['#add8e6', '#fafafa', '#add8e6']
 const About = () => (
   <AboutSection>
     <AboutWrapper>
+      <Portratit>
+        {flagStripes.map((s, i) => (
+          <Stripe key={i} color={s} index={i} />
+        ))}
+        <div id="image" />
+      </Portratit>
       <AboutText>
         <p>
-          <span style={{ fontSize: 56 }}>Hi, i'm Tomas.</span> I'm a Software
-          Engineer from Buenos Aires, Argentina. I graduated at Universidad
-          Tecnologica Nacional in 2016. <br />
+          <span style={{ fontSize: 56 }}>Hi, i'm Tomas.</span> I'm a Software Engineer from Buenos Aires, Argentina. I graduated from Universidad Tecnológica Nacional in 2016. <br />
           <br />
-          I've been working at Club Atletico River Plate since 2012, a sports
-          club in Buenos Aires, where I started as an IT help-desk. From then
-          I've been part in different Software implementations and developed
-          many applications, including Client-Server applications (C#,
-          SQLServer), Android applications (Java, Kotlin) and Web applications
-          (Python, NodeJS, React, etc). At the same time I've busy developing
-          some personal{' '}
+          I've been working at Club Atletico River Plate since 2012, a sports club in Buenos Aires, where I started as an IT help-desk. From then I've been part in different Software implementations
+          and developed many applications, including Client-Server applications (C#, SQLServer), Android applications (Java, Kotlin) and Web applications (Python, NodeJS, React, etc). At the same time
+          I've busy developing some personal{' '}
           <Link style={{ textDecoration: 'none' }} to="/projects">
-            <span style={{ fontSize: 24, color: palette.primary }}>
-              projects
-            </span>
+            <span style={{ fontSize: 24, color: palette.primary }}>projects</span>
           </Link>
           <br />
-          <br /> I've been focusing in Web Development since graduation, but I'm
-          interested in learning everything I can in Software Engineering
+          <br /> I've been focusing in Web Development since graduation, but I'm interested in learning everything I can in Software Engineering
         </p>
         <div style={{ flex: 1 }} />
         <Interests key="interests">
@@ -208,12 +189,6 @@ const About = () => (
           </Interest>
         </Interests>
       </AboutText>
-      <Portratit>
-        {flagStripes.map((s, i) => (
-          <Stripe key={i} color={s} index={i} />
-        ))}
-        <div id="image" />
-      </Portratit>
     </AboutWrapper>
   </AboutSection>
 )

@@ -186,8 +186,7 @@ const Line = styled.div`
   filter: drop-shadow(0px 0px 2px #ffffff);
   transform-origin: 0 0;
   transform: scaleY(0);
-  animation: ${lineScale} 0.05s ${props => props.order * 50 + 300}ms linear
-    forwards;
+  animation: ${lineScale} 0.05s ${props => props.order * 50 + 300}ms linear forwards;
 `
 
 const SkillsWrapper = styled.div`
@@ -252,6 +251,43 @@ const TimeLine = () => {
     <TimeLineWrapper>
       <div className="timeline-header">
         <div>
+          <Work />
+        </div>
+        <SectionTitle>Work Experience</SectionTitle>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={1} />
+          <br />
+        </div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={2} />
+          <div className="event-mark" />
+        </div>
+        <div className="event event-header">2012 - Present</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={3} />
+        </div>
+        <div className="event event-titulo">Club Atlético River Plate</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={4} />
+        </div>
+        <div className="event event-descripcion">Developer - IT Help Desk 2º</div>
+      </div>
+      <div className="timeline-row">
+        <div className="timeline-container">
+          <Line order={5} />
+          <br />
+        </div>
+      </div>
+      <div className="timeline-header">
+        <div>
           <School />
         </div>
         <SectionTitle>Education</SectionTitle>
@@ -273,9 +309,7 @@ const TimeLine = () => {
         <div className="timeline-container">
           <Line order={3} />
         </div>
-        <div className="event event-titulo">
-          Universidad Tecnológica Nacional (UTN)
-        </div>
+        <div className="event event-titulo">Universidad Tecnológica Nacional (UTN)</div>
       </div>
       <div className="timeline-row">
         <div className="timeline-container">
@@ -316,45 +350,6 @@ const TimeLine = () => {
       </div>
       <div className="timeline-header">
         <div>
-          <Work />
-        </div>
-        <SectionTitle>Work Experience</SectionTitle>
-      </div>
-      <div className="timeline-row">
-        <div className="timeline-container">
-          <Line order={1} />
-          <br />
-        </div>
-      </div>
-      <div className="timeline-row">
-        <div className="timeline-container">
-          <Line order={2} />
-          <div className="event-mark" />
-        </div>
-        <div className="event event-header">2012 - Present</div>
-      </div>
-      <div className="timeline-row">
-        <div className="timeline-container">
-          <Line order={3} />
-        </div>
-        <div className="event event-titulo">Club Atlético River Plate</div>
-      </div>
-      <div className="timeline-row">
-        <div className="timeline-container">
-          <Line order={4} />
-        </div>
-        <div className="event event-descripcion">
-          Developer - IT Help Desk 2º
-        </div>
-      </div>
-      <div className="timeline-row">
-        <div className="timeline-container">
-          <Line order={5} />
-          <br />
-        </div>
-      </div>
-      <div className="timeline-header">
-        <div>
           <Certificate />
         </div>
         <SectionTitle>Courses & Certifications</SectionTitle>
@@ -383,12 +378,8 @@ const TimeLine = () => {
           <Line order={4} />
         </div>
         <div className="event event-descripcion">
-          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/responsive-web-design">
-            Responsive
-          </Link>
-          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/javascript-algorithms-and-data-structures">
-            Algorithms
-          </Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/responsive-web-design">Responsive</Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/javascript-algorithms-and-data-structures">Algorithms</Link>
         </div>
       </div>
       <div className="timeline-row">
@@ -396,12 +387,8 @@ const TimeLine = () => {
           <Line order={4} />
         </div>
         <div className="event event-descripcion">
-          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/front-end-libraries">
-            Front End
-          </Link>
-          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/data-visualization">
-            Visualization
-          </Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/front-end-libraries">Front End</Link>
+          <Link href="https://www.freecodecamp.org/certification/tomassuarezl/data-visualization">Visualization</Link>
         </div>
       </div>
       <div className="timeline-row">
@@ -428,9 +415,7 @@ const TimeLine = () => {
           <Line order={8} />
         </div>
         <div className="event event-descripcion">
-          <Link href="https://www.udemy.com/certificate/UC-478OT4DM/">
-            The Advanced Web Developer Bootcamp
-          </Link>
+          <Link href="https://www.udemy.com/certificate/UC-478OT4DM/">The Advanced Web Developer Bootcamp</Link>
         </div>
       </div>
       <div className="timeline-row">
