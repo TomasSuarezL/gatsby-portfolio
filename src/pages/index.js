@@ -28,6 +28,7 @@ to {
 `
 
 const StyledLink = styled(Link)`
+  margin: 1rem;
   padding: 1rem;
   width: 15vw;
   border-radius: 3px;
@@ -201,7 +202,7 @@ const Portrait = styled.div`
     justify-content: center;
     align-items: center;
     flex: 1;
-    padding-right: 10vh;
+    padding-right: 10%;
     padding-top: 10vh;
     text-align: center;
     color: ${palette.lighter};

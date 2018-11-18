@@ -35,7 +35,7 @@ const ContactSubSection = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   padding: 16px;
 `
@@ -46,7 +46,7 @@ const ContactInformation = styled.div`
   flex-direction: row;
   width: 18rem;
   color: ${palette.lighter};
-  margin: 8px;
+  margin: 2vh;
   padding: 8px;
   sbox-shadow: 0 0 25px ${palette.dark}44, 0 0 35px ${palette.primary}aa inset;
   background: ${palette.darker}aa
@@ -96,6 +96,8 @@ const ContactForm = styled.div`
   width:80%;  
   display: flex;
   flex-direction: column;
+  align-self:center;
+  justify-self: center;
   margin: 24px;
   padding: 16px
   border-radius: 4px;
@@ -110,7 +112,7 @@ const ContactForm = styled.div`
   }
 `
 const ContactInput = styled.input`
-  margin: 8px;
+  margin: 16px;
   padding: 8px;
   border: 1px solid ${palette.light}cc;
   border-radius: 4px;
@@ -119,7 +121,7 @@ const ContactInput = styled.input`
 `
 
 const ContactTextarea = styled.textarea`
-  margin: 8px;
+  margin: 16px;
   padding: 8px;
   border: 1px solid ${palette.light}cc;
   border-radius: 4px;

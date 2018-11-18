@@ -9,6 +9,14 @@ import Travel from '../static/icons/travel.svg'
 import Cook from '../static/icons/cook.svg'
 import Finance from '../static/icons/finance.svg'
 import Brew from '../static/icons/homebrew.svg'
+import ReactLogo from '../static/icons/react-logo.svg'
+import JSLogo from '../static/icons/JS.svg'
+import NodeLogo from '../static/icons/nodejs.svg'
+import CSharpLogo from '../static/icons/c-sharp-logo.png'
+import SQLServerLogo from '../static/icons/SQLServer.svg'
+import PostgresLogo from '../static/icons/Postgresql.svg'
+import MongoLogo from '../static/icons/Mongo.svg'
+import PythonLogo from '../static/icons/Python.svg'
 
 const appear = keyframes`
  from {
@@ -16,7 +24,7 @@ const appear = keyframes`
   opacity: 0;
 } 
  to {
-   opacity: 0.7;
+   opacity: 1;
   transform: translateY(0);
  }
 `
@@ -51,8 +59,9 @@ const AboutText = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 1rem;
   animation: ${appear} 0.3s ease;
+  opacity: 0.9;
   @media (max-width: 1100px) {
     order: 2;
     padding-top: 0;
@@ -64,6 +73,7 @@ const Portratit = styled.div`
   justify-content: start;
   z-index: 1;
   flex: 1;
+  opacity: 0.6;
   @media (max-width: 1100px) {
     order: 1;
     position: initial;
@@ -119,7 +129,7 @@ const Interest = styled.div`
   background-color: ${palette.primary}aa;
   box-shadow: 0 0 40px ${palette.primary}aa;
   padding: 24px;
-  min-width: 12rem;
+  min-width: 15rem;
   margin: 1rem;
   opacity: 0;
   border-radius: 0 1rem 0rem 1rem;
@@ -136,6 +146,47 @@ const Interest = styled.div`
   }
 `
 
+const Skills = styled(Interests)``
+
+const Skill = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 16px;
+  padding: 8px;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: ${appear} 0.3s ${props => '0.' + Math.floor(props.order * 0.75)}s ease forwards;
+  svg, img {
+    width: 24px;
+    height: 24px;
+    fill: ${props => props.color}
+    margin: 0;
+    margin-right: 16px;
+    filter: drop-shadow( 0px 0px 4px ${props => props.color});
+  }
+  p{
+    flex: 1
+    margin: 0;
+    color: ${props => props.color}
+    text-shadow: 0 0 10px ${props => props.color};
+    max-width: 8rem;
+    font-weight: 400;
+  }
+`
+
+const StyledLink = styled(Link)`
+  span {
+    font-size: 3vh;
+    color: ${palette.light};
+  }
+  &:hover {
+    span {
+      color: ${palette.primary};
+    }
+  }
+`
+
 const flagStripes = ['#add8e6', '#fafafa', '#add8e6']
 
 const About = () => (
@@ -149,18 +200,54 @@ const About = () => (
       </Portratit>
       <AboutText>
         <p>
-          <span style={{ fontSize: 56 }}>Hi, i'm Tomas.</span> I'm a Software Engineer from Buenos Aires, Argentina. I graduated from Universidad Tecnológica Nacional in 2016. <br />
+          <span style={{ fontSize: 56 }}>Hi, i'm Tomas.</span>
+          <br /> I'm a Software Engineer from Buenos Aires, Argentina. I graduated from Universidad Tecnológica Nacional in 2016. <br />
           <br />
           I've been working at Club Atletico River Plate since 2012, a sports club in Buenos Aires, where I started as an IT help-desk. From then I've been part in different Software implementations
           and developed many applications, including Client-Server applications (C#, SQLServer), Android applications (Java, Kotlin) and Web applications (Python, NodeJS, React, etc). At the same time
           I've busy developing some personal{' '}
-          <Link style={{ textDecoration: 'none' }} to="/projects">
-            <span style={{ fontSize: 24, color: palette.primary }}>projects</span>
-          </Link>
+          <StyledLink to="/projects">
+            <span>projects</span>
+          </StyledLink>
           <br />
           <br /> I've been focusing in Web Development since graduation, but I'm interested in learning everything I can in Software Engineering
         </p>
         <div style={{ flex: 1 }} />
+        <Skills>
+          <h3>Skills</h3>
+          <Skill color="#f5de19" skillPoints="70" order="1">
+            <JSLogo />
+            <p>JavaScript</p>
+          </Skill>
+          <Skill color="#61dafb" skillPoints="55" order="2">
+            <ReactLogo />
+            <p>React</p>
+          </Skill>
+          <Skill color="#90c53f" skillPoints="50" order="3">
+            <NodeLogo />
+            <p>NodeJS</p>
+          </Skill>
+          <Skill color="#ffe253" skillPoints="40" order="4">
+            <PythonLogo />
+            <p>Python</p>
+          </Skill>
+          <Skill color="#007aff" skillPoints="70" order="5">
+            <img src={CSharpLogo} alt="C Sharp" />
+            <p>C#</p>
+          </Skill>
+          <Skill color="#bd1d1f" skillPoints="80" order="6">
+            <SQLServerLogo />
+            <p>SQLServer</p>
+          </Skill>
+          <Skill color="#54a744" skillPoints="40" order="7">
+            <MongoLogo />
+            <p>MongoDB</p>
+          </Skill>
+          <Skill color="#7397b4" skillPoints="40" order="8">
+            <PostgresLogo />
+            <p>PostgreSQL</p>
+          </Skill>
+        </Skills>
         <Interests key="interests">
           <h3>Interests & hobbies</h3>
           <Interest order="1">

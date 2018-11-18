@@ -4,14 +4,6 @@ import styled, { keyframes } from 'styled-components'
 import School from '../static/icons/school.svg'
 import Work from '../static/icons/work.svg'
 import Certificate from '../static/icons/certificates.svg'
-import ReactLogo from '../static/icons/react-logo.svg'
-import JSLogo from '../static/icons/JS.svg'
-import NodeLogo from '../static/icons/nodejs.svg'
-import CSharpLogo from '../static/icons/c-sharp-logo.png'
-import SQLServerLogo from '../static/icons/SQLServer.svg'
-import PostgresLogo from '../static/icons/Postgresql.svg'
-import MongoLogo from '../static/icons/Mongo.svg'
-import PythonLogo from '../static/icons/Python.svg'
 
 const lineScale = keyframes`
     from {
@@ -58,9 +50,11 @@ const SectionTitle = styled.h3`
 
 const BackgroundSection = styled.div`
   position: relative;
+  padding: 4rem;
   padding-top: 6rem;
+  padding-bottom: 1rem;
   width: 100%;
-  overflow: auto;
+  height: 100%;
   will-change: transform;
   z-index: 1;
   display: flex;
@@ -68,14 +62,17 @@ const BackgroundSection = styled.div`
   background-image: linear-gradient(${palette.darker}dd, ${palette.dark}ee);
   @media (max-width: 1100px) {
     flex-direction: column;
+    height: auto
   }
   }
 `
 const TimeLineWrapper = styled.div`
   flex: 1;
   margin: 2rem;
-  padding-left: 2rem;
+  padding: 2rem;
+  background-color: ${palette.darker}b0;
   display: flex;
+  width: 80%;
   flex-direction: column;
   color: white;
 
@@ -348,6 +345,13 @@ const TimeLine = () => {
           <br />
         </div>
       </div>
+    </TimeLineWrapper>
+  )
+}
+
+const CertificateTimeline = () => {
+  return (
+    <TimeLineWrapper>
       <div className="timeline-header">
         <div>
           <Certificate />
@@ -510,7 +514,7 @@ const Skills = () => {
 const Background = () => (
   <BackgroundSection>
     <TimeLine />
-    <Skills />
+    <CertificateTimeline />
   </BackgroundSection>
 )
 
